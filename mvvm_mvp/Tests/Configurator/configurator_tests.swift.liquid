@@ -1,0 +1,46 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import XCTest
+
+class {{ module_info.name }}ModuleConfiguratorTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    func testConfigureModuleForViewController() {
+
+        //given
+	let output = {{ module_info.name }}MockModuleOutput()
+        let view = {{ module_info.name }}ModuleConfigurator(output: output)
+
+        //when
+        configurator.configureModuleForViewInput(viewInput: viewController)
+
+        //then
+        XCTAssertNotNil(view.model "{{ module_info.name }}ViewModel is nil after configuration")
+        XCTAssertTrue(view.model is {{ module_info.name }}ViewModel, "output is not {{ module_info.name }}ViewModel")
+
+        let presenter: {{ module_info.name }}Presenter = (view.model as? {{ module_info.name }}ViewModel).output as! {{ module_info.name }}Presenter
+        XCTAssertNotNil(presenter.viewModel, "viewModel in {{ module_info.name }}Presenter is nil after configuration")
+
+        let interactor: {{ module_info.name }}Interactor = presenter.interactor as! {{ module_info.name }}Interactor
+        XCTAssertNotNil(interactor.output, "output in {{ module_info.name }}Interactor is nil after configuration")
+    }
+
+    class {{ module_info.name }}MockModuleOutput: {{ module_info.name }}ModuleOutput {
+
+    }
+}

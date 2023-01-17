@@ -1,0 +1,18 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+import SwiftUI
+
+protocol {{ module_info.name }}ViewModel: ObservableObject {
+	var output: {{ module_info.name }}ViewOutput!
+}
+
+extension {{ module_info.name }}ViewModel: {{module_info.name}}ViewInput {
+
+}

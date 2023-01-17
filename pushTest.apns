@@ -1,0 +1,10 @@
+{
+    "Simulator Target Bundle": "MaximNikulin.BusinessCard",
+    "aps": {
+        "alert": {
+            "title": "Push Notification",
+            "subtitle": "Test Push Notifications",
+            "body" : "Testing Push Notifications on iOS Simulator",
+        }
+    }
+}
